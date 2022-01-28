@@ -1,6 +1,19 @@
-import * as React from 'react';
+import React, { ReactNode } from 'react';
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  // Put Header or Footer Here
-  return <>{children}</>;
-}
+import Footer from './Footer';
+import Header from './Header';
+
+type Props = {
+  children?: ReactNode;
+  title?: string;
+};
+
+const Layout = ({ children }: Props) => (
+  <>
+    <Header />
+    <main className='flex w-full flex-col pt-16'>{children}</main>
+    <Footer />
+  </>
+);
+
+export default Layout;

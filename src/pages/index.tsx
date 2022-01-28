@@ -1,5 +1,9 @@
 import * as React from 'react';
 
+import Container from '@/components/common/Container';
+import Grid from '@/components/common/Grid';
+import Bookmark from '@/components/homepage/Bookmark';
+import Filter from '@/components/homepage/Filter';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
@@ -13,9 +17,21 @@ import Seo from '@/components/Seo';
 
 export default function HomePage() {
   return (
-    <Layout>
+    <>
       {/* <Seo templateTitle='Home' /> */}
       <Seo />
-    </Layout>
+      <Layout>
+        <Container className='pt-24'>
+          <Grid>
+            <div className='col-span-2 flex items-center justify-start'>
+              <Filter />
+            </div>
+            <div className='col-span-2 col-end-13 flex items-center justify-end'>
+              <Bookmark />
+            </div>
+          </Grid>
+        </Container>
+      </Layout>
+    </>
   );
 }
