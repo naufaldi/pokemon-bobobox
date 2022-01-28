@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import React, { FC, useEffect, useState } from 'react';
 
+import { PokemonTypesProps } from '@/type/Type';
+
 import Badge, { BadgeVariant } from '../common/Badge';
 import NextImage from '../NextImage';
 
@@ -23,9 +25,12 @@ const Card: FC<{ name: string; url: string }> = ({ name, url }) => {
   }, [name, url]);
   return (
     <div className='flex flex-col rounded-round transition-all hover:opacity-75 hover:shadow-md'>
-      <div className=' origin-center rotate-2  rounded-round border  border-orange-300 bg-orange-100 p-8'>
+      <div className='relative origin-center rotate-2  rounded-round border  border-orange-300 bg-orange-100 p-8'>
+        <div className='absolute top-5 right-10'>
+          <h4>{data?.id}</h4>
+        </div>
         <Link href={`/pokemon/${name}`} as={`/pokemon/${name}`}>
-          <a className='relative block h-52 w-full origin-center -rotate-2'>
+          <a className=' block h-52 w-full origin-center -rotate-2'>
             <NextImage
               src={imageUrl ? imageUrl : '/images/pokemon.png'}
               alt={name}
@@ -41,11 +46,13 @@ const Card: FC<{ name: string; url: string }> = ({ name, url }) => {
       <div className='mt-4 flex flex-col px-4 pb-2'>
         <h6 className='mx-auto uppercase'>{name}</h6>
         <div className='justify-betwen mt-3 flex space-x-2 px-4'>
-          {data?.types?.slice(0, 4).map((item: any, index: number) => (
-            <Badge key={index} variant={badgeRandom[index] as BadgeVariant}>
-              {item.type.name}
-            </Badge>
-          ))}
+          {data?.types
+            ?.slice(0, 4)
+            .map((item: PokemonTypesProps, index: number) => (
+              <Badge key={index} variant={badgeRandom[index] as BadgeVariant}>
+                {item.type.name}
+              </Badge>
+            ))}
         </div>
       </div>
     </div>

@@ -10,19 +10,20 @@ export type PokeAPIProps = {
   results: PokemonProps[];
 };
 
+export type PokemonTypesProps = {
+  slot: number;
+  type: {
+    name: string;
+    url: string;
+  };
+};
 export type PokemonDetailsProps = {
   name: string;
   id: number;
   height: number;
   weight: number;
   base_experience: number;
-  types: {
-    slot: number;
-    type: {
-      name: string;
-      url: string;
-    };
-  }[];
+  types: PokemonTypesProps[];
 
   moves: {
     move: {
@@ -44,6 +45,21 @@ export type PokemonDetailsProps = {
   sprites: {
     front_default: string;
     back_default: string;
+    other: {
+      dream_world: {
+        front_default: string;
+        front_female: string | null;
+      };
+      home: {
+        front_default: string;
+        front_female: string | null;
+        front_shiny: string;
+        front_shiny_femaley: string;
+      };
+      'official-artwork': {
+        front_default: string;
+      };
+    };
   };
   species: {
     name: string;

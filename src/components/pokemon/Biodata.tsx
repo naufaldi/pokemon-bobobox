@@ -7,16 +7,23 @@ type BiodataProps = {
   height: number;
   species: string;
   weight: number;
+  imageUrl: string;
 };
 
-const Biodata: FC<BiodataProps> = ({ experience, height, species, weight }) => {
+const Biodata: FC<BiodataProps> = ({
+  experience,
+  height,
+  species,
+  weight,
+  imageUrl,
+}) => {
   return (
     <div className='grid w-full grid-cols-12 gap-6 '>
       <div className='col-span-8 rounded-lg border border-orange-200'>
         <div className='block h-80 w-full origin-center -rotate-2'>
           <NextImage
-            src='/images/pokemon.png'
-            alt='pokemon'
+            src={imageUrl}
+            alt={species}
             width={500}
             height={500}
             layout='fill'

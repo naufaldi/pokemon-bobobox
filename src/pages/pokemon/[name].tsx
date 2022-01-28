@@ -35,6 +35,10 @@ const Name: NextPage<{ data: PokemonDetailsProps }> = ({ data }) => {
               height={data.height}
               species={data.species.name}
               weight={data.weight}
+              imageUrl={
+                data?.sprites?.other?.['official-artwork']?.front_default ||
+                data?.sprites?.other?.home?.front_default
+              }
             />
           </div>
           <div className='col-span-6'>
