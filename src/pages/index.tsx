@@ -17,8 +17,8 @@ import Seo from '@/components/Seo';
  * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
  */
 
-export default function HomePage({ data }: Record<string, any>) {
-  console.log('data', data);
+export default function HomePage({ data, page }: Record<string, any>) {
+  // const page = useRecoilValue(paginationAtom);
   return (
     <>
       {/* <Seo templateTitle='Home' /> */}
@@ -34,7 +34,7 @@ export default function HomePage({ data }: Record<string, any>) {
             </div>
             <ListCard results={data?.results} />
             <div className='col-span-full'>
-              <Pagination />
+              <Pagination page={page} />
             </div>
           </Grid>
         </Container>
@@ -44,13 +44,18 @@ export default function HomePage({ data }: Record<string, any>) {
 }
 
 // This gets called on every request
-export async function getServerSideProps() {
+export async function getServerSideProps({ query: { page = 0 } }) {
   // Fetch data from external API
   const res = await fetch(
-    `https://pokeapi.co/api/v2/pokemon?offset=0&limit=21`
+    `https://pokeapi.co/api/v2/pokemon?offset=${page}&limit=21`
   );
   const data = await res.json();
+  if (Number.isInteger(page)) {
+    return { props: { data, page: page } };
+  }
+  if (typeof page === 'string') {
+    return { props: { data, page: parseInt(page) } };
+  }
 
   // Pass data to the page via props
-  return { props: { data } };
 }

@@ -25,7 +25,7 @@ const Card: FC<{ name: string; url: string }> = ({ name, url }) => {
     <div className='flex flex-col rounded-round transition-all hover:opacity-75 hover:shadow-md'>
       <div className=' origin-center rotate-2  rounded-round border  border-orange-300 bg-orange-100 p-8'>
         <Link href={`/pokemon/${name}`} as={`/pokemon/${name}`}>
-          <a className='block h-52 w-full origin-center -rotate-2'>
+          <a className='relative block h-52 w-full origin-center -rotate-2'>
             <NextImage
               src={imageUrl ? imageUrl : '/images/pokemon.png'}
               alt={name}
