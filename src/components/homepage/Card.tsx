@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { FC, useEffect, useState } from 'react';
 
-import Badge, { BadgeVariant } from './Badge';
+import Badge, { BadgeVariant } from '../common/Badge';
 import NextImage from '../NextImage';
 
 const Card: FC<{ name: string; url: string }> = ({ name, url }) => {
@@ -13,7 +13,10 @@ const Card: FC<{ name: string; url: string }> = ({ name, url }) => {
       const result = await fetch(`${url}`);
       const data = await result.json();
       setData(data);
-      setImageUrl(data?.sprites?.other?.['official-artwork']?.front_default);
+      setImageUrl(
+        data?.sprites?.other?.['official-artwork']?.front_default ||
+          data?.sprites?.other?.home?.front_default
+      );
     };
 
     fetchData();

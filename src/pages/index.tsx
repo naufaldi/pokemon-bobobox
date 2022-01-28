@@ -46,7 +46,9 @@ export default function HomePage({ data }: Record<string, any>) {
 // This gets called on every request
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon`);
+  const res = await fetch(
+    `https://pokeapi.co/api/v2/pokemon?offset=0&limit=21`
+  );
   const data = await res.json();
 
   // Pass data to the page via props

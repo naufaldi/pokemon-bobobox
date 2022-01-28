@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import { PokemonProps } from '@/type/Type';
 
-import Card from '../common/Card';
+import Card from './Card';
 
 type ListCardProps = {
   results: PokemonProps[];
