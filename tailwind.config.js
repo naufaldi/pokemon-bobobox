@@ -6,6 +6,9 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      borderRadius: {
+        round: '255px 25px 225px 25px/25px 225px 25px 255px',
+      },
       fontFamily: {
         primary: ['Inter', ...fontFamily.sans],
         cabin: ['Cabin Sketch', 'cursive', ...fontFamily.sans],
