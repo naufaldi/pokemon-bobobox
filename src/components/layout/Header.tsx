@@ -1,10 +1,30 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
+
+import clsxm from '@/lib/clsxm';
 
 import NextImage from '../NextImage';
 
 const Header: FC = () => {
+  const [onTop, setOnTop] = useState<boolean>(true);
+  const handleScroll = () => {
+    if (onTop !== (window.pageYOffset === 0)) {
+      setOnTop(window.pageYOffset === 0);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  });
   return (
-    <header className='fixed inset-x-0 top-0 w-full bg-white '>
+    <header
+      className={clsxm(
+        'fixed inset-x-0 top-0 z-10 w-full bg-white transition-all',
+        onTop ? '' : 'shadow'
+      )}
+    >
       <nav className='mx-auto w-full max-w-screen-xl rounded border-gray-200 px-2 py-2.5 dark:bg-gray-800 sm:px-4'>
         <div className='container mx-auto flex flex-wrap items-center justify-between'>
           <a href='#' className='mr-2 h-10 w-auto'>

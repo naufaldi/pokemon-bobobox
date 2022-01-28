@@ -2,15 +2,9 @@ import React, { FC } from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-enum BadgeVariant {
-  'primary',
-  'dark',
-  'red',
-  'green',
-  'yellow',
-}
+export type BadgeVariant = 'primary' | 'dark' | 'red' | 'green' | 'yellow';
 type BadgeProps = {
-  variant?: keyof typeof BadgeVariant;
+  variant: BadgeVariant;
   className?: string;
 };
 
