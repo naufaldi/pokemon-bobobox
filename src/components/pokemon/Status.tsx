@@ -1,13 +1,19 @@
 import React, { FC } from 'react';
 
-const Status: FC = () => {
+import { StatsProps } from '@/type/Type';
+
+const Status: FC<{ stats: StatsProps[] }> = ({ stats }) => {
   return (
     <div className='flex w-8/12 flex-col space-y-2'>
       <h4 className='mb-4'>Status Pokemon</h4>
-      <div className='flex w-full'>
-        <p className='w-6/12 font-bold'>Weight:</p>
-        <p className=''>120</p>
-      </div>
+      {stats?.map((item: StatsProps, index: number) => {
+        return (
+          <div className='flex w-full' key={index}>
+            <p className='w-6/12 font-bold capitalize'>{item.stat.name}:</p>
+            <p className=''>{item.base_stat}</p>
+          </div>
+        );
+      })}
     </div>
   );
 };

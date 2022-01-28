@@ -2,7 +2,14 @@ import React, { FC } from 'react';
 
 import NextImage from '../NextImage';
 
-const Biodata: FC = () => {
+type BiodataProps = {
+  experience: number;
+  height: number;
+  species: string;
+  weight: number;
+};
+
+const Biodata: FC<BiodataProps> = ({ experience, height, species, weight }) => {
   return (
     <div className='grid w-full grid-cols-12 gap-6 '>
       <div className='col-span-8 rounded-lg border border-orange-200'>
@@ -21,19 +28,19 @@ const Biodata: FC = () => {
         <h4 className='mb-4'>Biodata</h4>
         <div className='flex w-full'>
           <p className='w-6/12 font-bold'>Weight:</p>
-          <p className=''>120</p>
+          <p className=''>{weight}</p>
         </div>
         <div className='flex w-full'>
           <p className='w-6/12 font-bold'>Height:</p>
-          <p className=''>120</p>
+          <p className=''>{height}</p>
         </div>
         <div className='flex w-full'>
           <p className='w-6/12 font-bold'>Species:</p>
-          <p className=''>bulbasaur</p>
+          <p className='capitalize'>{species}</p>
         </div>
         <div className='flex w-full'>
           <p className='w-6/12 font-bold'>Base Experience:</p>
-          <p className=''>bulbasaur</p>
+          <p className=''>{experience}</p>
         </div>
       </div>
     </div>

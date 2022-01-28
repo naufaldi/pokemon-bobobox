@@ -8,8 +8,10 @@ import Abilities from '@/components/pokemon/Abilities';
 import Biodata from '@/components/pokemon/Biodata';
 import Status from '@/components/pokemon/Status';
 
-const Name: NextPage<{ data: Record<string, any> }> = ({ data }) => {
-  console.log('data detail', data);
+import { PokemonDetailsProps } from '@/type/Type';
+
+const Name: NextPage<{ data: PokemonDetailsProps }> = ({ data }) => {
+  // console.log('data detail', data.stats);
   return (
     <Layout>
       <Container className='pt-24'>
@@ -26,10 +28,10 @@ const Name: NextPage<{ data: Record<string, any> }> = ({ data }) => {
             />
           </div>
           <div className='col-span-6'>
-            <Status />
+            <Status stats={data.stats} />
           </div>
           <div className='col-span-6'>
-            <Abilities />
+            <Abilities ability={data.abilities} />
           </div>
         </Grid>
       </Container>
