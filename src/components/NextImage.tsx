@@ -65,8 +65,7 @@ export default function NextImage({
           status === 'loading' && clsxm('animate-pulse', blurClassName)
         )}
         src={src}
-        width={width}
-        height={height}
+        layout='fill'
         alt={alt}
         onLoadingComplete={() => setStatus('complete')}
         placeholder='blur'
