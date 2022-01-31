@@ -21,8 +21,8 @@ export default function HomePage({ data, page }: Record<string, any>) {
   // const page = useRecoilValue(paginationAtom);
   return (
     <>
-      {/* <Seo templateTitle='Home' /> */}
-      <Seo />
+      <Seo templateTitle='Homepage Pokemon' />
+
       <Layout>
         <Container className='pt-24'>
           <Grid className='gap-y-6'>

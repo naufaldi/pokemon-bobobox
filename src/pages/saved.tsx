@@ -29,8 +29,7 @@ export default function Saved({ initialRecoilState }: Record<string, any>) {
   }, []);
   return (
     <>
-      {/* <Seo templateTitle='Home' /> */}
-      <Seo />
+      <Seo templateTitle='Saved Pokemon' />
       <Layout>
         <Container className='pt-24'>
           <Grid className='gap-y-6'>

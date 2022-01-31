@@ -9,47 +9,51 @@ import Layout from '@/components/layout/Layout';
 import Abilities from '@/components/pokemon/Abilities';
 import Biodata from '@/components/pokemon/Biodata';
 import Status from '@/components/pokemon/Status';
+import Seo from '@/components/Seo';
 
 import { PokemonDetailsProps } from '@/type/Type';
 
 const Name: NextPage<{ data: PokemonDetailsProps }> = ({ data }) => {
   // console.log('data detail', data.stats);
   return (
-    <Layout>
-      <Container className='pt-24'>
-        <Grid className='gap-y-6'>
-          <div className='col-span-2 flex items-center justify-start'>
-            <Link passHref href='/'>
-              <a className='flex items-center justify-center rounded border border-blue-500 px-6 py-2 text-blue-500 transition-all hover:border-blue-600 hover:bg-blue-600 hover:text-white'>
-                <BiArrowBack className='mr-2 h-4 w-4' />
-                Home
-              </a>
-            </Link>
-          </div>
-          <div className='col-span-full text-center'>
-            <h1 className='uppercase'>{data.name}</h1>
-          </div>
-          <div className='col-span-8'>
-            <Biodata
-              experience={data.base_experience}
-              height={data.height}
-              species={data.species.name}
-              weight={data.weight}
-              imageUrl={
-                data?.sprites?.other?.['official-artwork']?.front_default ||
-                data?.sprites?.other?.home?.front_default
-              }
-            />
-          </div>
-          <div className='col-span-6'>
-            <Status stats={data.stats} />
-          </div>
-          <div className='col-span-6'>
-            <Abilities ability={data.abilities} />
-          </div>
-        </Grid>
-      </Container>
-    </Layout>
+    <>
+      <Seo templateTitle={`Detail Pokemon ${data.name}`} />
+      <Layout>
+        <Container className='pt-24'>
+          <Grid className='gap-y-6'>
+            <div className='col-span-2 flex items-center justify-start'>
+              <Link passHref href='/'>
+                <a className='flex items-center justify-center rounded border border-blue-500 px-6 py-2 text-blue-500 transition-all hover:border-blue-600 hover:bg-blue-600 hover:text-white'>
+                  <BiArrowBack className='mr-2 h-4 w-4' />
+                  Home
+                </a>
+              </Link>
+            </div>
+            <div className='col-span-full text-center'>
+              <h1 className='uppercase'>{data.name}</h1>
+            </div>
+            <div className='col-span-8'>
+              <Biodata
+                experience={data.base_experience}
+                height={data.height}
+                species={data.species.name}
+                weight={data.weight}
+                imageUrl={
+                  data?.sprites?.other?.['official-artwork']?.front_default ||
+                  data?.sprites?.other?.home?.front_default
+                }
+              />
+            </div>
+            <div className='col-span-6'>
+              <Status stats={data.stats} />
+            </div>
+            <div className='col-span-6'>
+              <Abilities ability={data.abilities} />
+            </div>
+          </Grid>
+        </Container>
+      </Layout>
+    </>
   );
 };
 
