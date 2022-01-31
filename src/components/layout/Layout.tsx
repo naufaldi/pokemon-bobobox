@@ -11,7 +11,9 @@ type Props = {
 const Layout = ({ children }: Props) => (
   <>
     <Header />
-    <main className='flex w-full flex-col pt-16'>{children}</main>
+    <main className='flex w-full flex-grow flex-col pt-16 pb-12'>
+      {children}
+    </main>
     <Footer />
   </>
 );
