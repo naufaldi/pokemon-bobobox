@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
+import { useRecoilValue } from 'recoil';
 
+import { filterAtom } from '@/recoil/filter';
 import { PokemonProps } from '@/type/Type';
 
 import Card from './Card';
@@ -9,15 +11,16 @@ type ListCardProps = {
 };
 
 const ListCard: FC<ListCardProps> = ({ results }) => {
+  const searchName = useRecoilValue(filterAtom);
   return (
     <>
-      {results?.map((item, index) => {
-        return (
-          <div className='col-span-4' key={index}>
-            <Card name={item.name} url={item.url} />
+      {results
+        ?.filter((filterName) => filterName.name.includes(searchName))
+        .map((result: PokemonProps) => (
+          <div className='col-span-4' key={result.name}>
+            <Card url={result.url} name={result.name} />
           </div>
-        );
-      })}
+        ))}
     </>
   );
 };
