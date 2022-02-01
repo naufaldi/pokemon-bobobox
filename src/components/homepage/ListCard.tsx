@@ -11,6 +11,7 @@ type ListCardProps = {
 };
 
 const ListCard: FC<ListCardProps> = ({ results }) => {
+  // filter with filter array, limitation base on showing array api
   const searchName = useRecoilValue(filterAtom);
   return (
     <>

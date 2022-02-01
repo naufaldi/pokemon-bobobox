@@ -9,14 +9,6 @@ import Pagination from '@/components/homepage/Pagination';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
-/**
- * SVGR Support
- * Caveat: No React Props Type.
- *
- * You can override the next-env if the type is important to you
- * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
- */
-
 export default function HomePage({ data, page }: Record<string, any>) {
   // const page = useRecoilValue(paginationAtom);
   return (
@@ -26,10 +18,10 @@ export default function HomePage({ data, page }: Record<string, any>) {
       <Layout>
         <Container className='pt-24'>
           <Grid className='gap-y-6'>
-            <div className='col-span-2 flex items-center justify-start'>
+            <div className='col-span-6 flex items-center justify-start sm:col-span-2'>
               <Filter />
             </div>
-            <div className='col-span-2 col-end-13 flex items-center justify-end'>
+            <div className='col-span-4 col-end-13 flex items-end justify-end sm:items-center'>
               <Bookmark />
             </div>
             <ListCard results={data?.results} />

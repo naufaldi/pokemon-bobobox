@@ -1,3 +1,4 @@
+//  type checking for pokemon
 export type PokemonProps = {
   name: string;
   url: string;

@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import { openGraph } from '@/lib/helper';
 
-// !STARTERCONF Change these default meta
+// make it SEO Friendly
 const defaultMeta = {
   title: 'Pokemon',
   siteName: 'List Pokemon',

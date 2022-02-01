@@ -32,7 +32,7 @@ const Name: NextPage<{ data: PokemonDetailsProps }> = ({ data }) => {
             <div className='col-span-full text-center'>
               <h1 className='uppercase'>{data.name}</h1>
             </div>
-            <div className='col-span-8'>
+            <div className='col-span-full sm:col-span-8'>
               <Biodata
                 experience={data.base_experience}
                 height={data.height}

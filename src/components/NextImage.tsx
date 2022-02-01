@@ -2,6 +2,8 @@ import Image, { ImageProps } from 'next/image';
 import * as React from 'react';
 
 import clsxm from '@/lib/clsxm';
+
+// shimmer for loading image
 const shimmer = (w: string | number, h?: string | number) => `
 <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
@@ -16,7 +18,7 @@ const shimmer = (w: string | number, h?: string | number) => `
   <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
 </svg>`;
 
-const toBase64 = (str: any) =>
+const toBase64 = (str: string) =>
   typeof window === 'undefined'
     ? Buffer.from(str).toString('base64')
     : window.btoa(str);

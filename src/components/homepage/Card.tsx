@@ -59,11 +59,11 @@ const Card: FC<{ name: string; url: string }> = ({ name, url }) => {
       }, 2000);
     }
   }, [showToast]);
-  console.log('router', pathName);
+  // console.log('router', pathName);
   return (
     <>
       {showToast && (
-        <div className='fixed top-16 left-[50%]  z-20'>
+        <div className='fixed top-28 left-[20%] z-20 sm:top-16  sm:left-[50%]'>
           <Toast
             variant='success'
             onClose={() => setShowToast(!showToast)}
@@ -93,6 +93,7 @@ const Card: FC<{ name: string; url: string }> = ({ name, url }) => {
         <div className='relative mt-4 flex flex-col px-4 pb-2'>
           <div className='flex justify-between'>
             <h6 className='mx-auto uppercase'>{name}</h6>
+            {/* cek if pathname saved, then change to remove from bookmark */}
             {pathName === '/saved' ? (
               <Button
                 className='border-none p-0 text-red-500 hover:bg-transparent hover:text-red-700'
