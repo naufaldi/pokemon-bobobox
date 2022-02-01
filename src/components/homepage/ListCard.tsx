@@ -17,7 +17,7 @@ const ListCard: FC<ListCardProps> = ({ results }) => {
       {results
         ?.filter((filterName) => filterName.name.includes(searchName))
         .map((result: PokemonProps) => (
-          <div className='col-span-4' key={result.name}>
+          <div className='col-span-full sm:col-span-4' key={result.name}>
             <Card url={result.url} name={result.name} />
           </div>
         ))}
