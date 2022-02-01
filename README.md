@@ -67,8 +67,7 @@ Start the server
 
 ## Preview
 
-### Dekstop
-
 ![Dekstop](/screenshot/dekstop.png)
-![Mobile](/screenshot/dekstop.png)
-![Saved Bookmark](/screenshot/dekstop.png)
+![Mobile](/screenshot/mobile.png)
+![Saved Bookmark](/screenshot/dekstop-bookmark.png)
+![Detail Pokemon](/screenshot/dekstop-detail.png)
