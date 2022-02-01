@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-type ToastProps = {
+export type ToastProps = {
   message: string;
   variant: 'success' | 'error';
   onClose: () => void;
@@ -22,6 +22,7 @@ const Toast: FC<ToastProps> = ({ message, onClose, variant }) => {
           variant === 'success' && 'bg-green-100 text-green-500 ',
           variant === 'error' && 'bg-red-100 text-red-500 '
         )}
+        data-testid={`toast-${variant}`}
       >
         <svg
           className='h-5 w-5'
