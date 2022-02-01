@@ -18,7 +18,7 @@ export interface ButtonProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   variant?: keyof typeof ButtonVariant;
   size?: keyof typeof ButtonSize;
-  type?: string;
+  type?: 'button' | 'submit';
   tag?: React.ElementType;
   disabled?: boolean;
 }
@@ -54,9 +54,9 @@ export const Button: React.FC<ButtonProps> = ({
             'disabled:bg-blue-400 disabled:hover:bg-blue-400',
           ],
           variant === 'outline' && [
-            'text-white',
-            'border-white-500 border',
-            'hover:bg-white hover:text-blue-500 active:bg-white disabled:bg-white',
+            'text-blue-500',
+            'border border-gray-500',
+            ' hover:border-blue-500 hover:bg-blue-500 hover:text-white',
           ],
           variant === 'light' && [
             'bg-white text-dark ',
