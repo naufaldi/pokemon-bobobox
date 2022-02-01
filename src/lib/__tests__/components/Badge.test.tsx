@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 
 import Badge from '@/components/common/Badge';
 
-test('shows the children when the checkbox is checked', () => {
+test('shows the children ', () => {
   const testMessage = 'Test Message';
   render(<Badge variant='primary'>{testMessage}</Badge>);
 
