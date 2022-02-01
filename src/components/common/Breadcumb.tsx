@@ -2,9 +2,9 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 
 export type BreadcrumbProps = {
-  homeUrl: string;
-  homeLabel: string;
-  page: string;
+  homeUrl?: string;
+  homeLabel?: string;
+  page?: string;
 };
 
 const Breadcumb: FC<BreadcrumbProps> = ({

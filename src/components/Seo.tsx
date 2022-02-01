@@ -7,7 +7,8 @@ import { openGraph } from '@/lib/helper';
 const defaultMeta = {
   title: 'Pokemon',
   siteName: 'List Pokemon',
-  description: 'List Pokemon base on Pokemon API',
+  description:
+    'List Pokemon base on Pokemon API. Build with NextJS and Host in Vercel. List, Detail and Bookmark Pokemon Items.',
 
   url: 'https://pokemon-bobobox.vercel.app',
   type: 'website',
@@ -91,7 +92,6 @@ type Favicons = {
   type?: string;
 };
 
-// !STARTERCONF this is the default favicon, you can generate your own from https://www.favicon-generator.org/ then replace the whole /public/favicon folder
 const favicons: Array<Favicons> = [
   {
     rel: 'apple-touch-icon',

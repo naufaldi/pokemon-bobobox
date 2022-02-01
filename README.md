@@ -66,3 +66,9 @@ Start the server
 ```
 
 ## Preview
+
+### Dekstop
+
+![Dekstop](/screenshot/dekstop.png)
+![Mobile](/screenshot/dekstop.png)
+![Saved Bookmark](/screenshot/dekstop.png)
